@@ -1,19 +1,20 @@
-$(document).ready(function () {
+$(window).on('load', function () {
+    var $mainSlider = $('#js-main-slider');
 
-	$('#js-main-slider').pogoSlider({
-		autoplay: true,
-		autoplayTimeout: 5000,
-		displayProgess: true,
-		preserveTargetSize: true,
-		targetWidth: 1000,
-		targetHeight: 300,
-		responsive: true
-	}).data('plugin_pogoSlider');
+    if (!$mainSlider.length || typeof $.fn.pogoSlider !== 'function') {
+        return;
+    }
 
-	var transitionDemoOpts = {
-		displayProgess: false,
-		generateNav: false,
-		generateButtons: false
-	}
-
+    $mainSlider.pogoSlider({
+        autoplay: true,
+        autoplayTimeout: 5000,
+        displayProgess: true,
+        preserveTargetSize: true,
+        targetWidth: 1000,
+        targetHeight: 420,
+        responsive: true,
+        pauseOnHover: true,
+        generateNav: true,
+        generateButtons: true
+    });
 });
